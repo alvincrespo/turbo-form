@@ -6,6 +6,8 @@
   "files": [
     "dist/*.js",
     "dist/*.js.map",
+    "dist/**/*.js",
+    "dist/**/*.js.map",
     "dist/types/**/*"
   ],
   "repository": {
