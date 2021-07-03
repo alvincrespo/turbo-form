@@ -1,7 +1,7 @@
 import { Controller } from "stimulus";
 import { Csrf } from "../utils/csrf";
 
-export default class LinkMethodController extends Controller {
+export class LinkMethodController extends Controller {
   csrf = new Csrf()
 
   form: HTMLFormElement = document.createElement('form');
