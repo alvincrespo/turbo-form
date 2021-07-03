@@ -40,8 +40,8 @@
   "scripts": {
     "clean": "rm -fr dist",
     "clean:win": "rmdir /s /q dist",
-    "build": "tsc --noEmit false --declaration true --outDir dist/types",
-    "build:win": "tsc --noEmit false --declaration true --outDir dist/types & rollup -c",
+    "build": "tsc --noEmit false --outDir dist",
+    "build:win": "tsc --noEmit false --outDir dist & rollup -c",
     "watch": "rollup -wc",
     "start": "node src/tests/runner.js serveOnly",
     "test": "NODE_OPTIONS=--inspect node src/tests/runner.js",
