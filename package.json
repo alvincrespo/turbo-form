@@ -1,6 +1,6 @@
 {
   "name": "@foxglovetech/turbo-form",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "Enhances forms with turbolinks like declarations.",
   "module": "dist/turbo-form.es2017-esm.js",
   "main": "dist/turbo-form.es5-umd.js",
@@ -40,8 +40,8 @@
   "scripts": {
     "clean": "rm -fr dist",
     "clean:win": "rmdir /s /q dist",
-    "build": "tsc --noEmit false --declaration true --emitDeclarationOnly true --outDir dist/types && rollup -c",
-    "build:win": "tsc --noEmit false --declaration true --emitDeclarationOnly true --outDir dist/types & rollup -c",
+    "build": "tsc --noEmit false --declaration true --outDir dist/types",
+    "build:win": "tsc --noEmit false --declaration true --outDir dist/types & rollup -c",
     "watch": "rollup -wc",
     "start": "node src/tests/runner.js serveOnly",
     "test": "NODE_OPTIONS=--inspect node src/tests/runner.js",
