@@ -1,6 +1,6 @@
 {
   "name": "@foxglovetech/turbo-form",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Enhances forms with turbolinks like declarations.",
   "module": "dist/turbo-form.es2017-esm.js",
   "main": "dist/turbo-form.es5-umd.js",
