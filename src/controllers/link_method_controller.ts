@@ -4,7 +4,7 @@ import { Csrf } from "../utils/csrf";
 export default class LinkMethodController extends Controller {
   csrf = new Csrf()
 
-  form: HTMLFormElement;
+  form: HTMLFormElement = document.createElement('form');
 
   get element(): HTMLLinkElement {
     return this.scope.element as HTMLLinkElement;
@@ -14,7 +14,7 @@ export default class LinkMethodController extends Controller {
     this.element.addEventListener('click', (event) => this.onClick(event));
   }
 
-  onClick(event) {
+  onClick(event: MouseEvent) {
     event.preventDefault();
     event.stopPropagation();
 

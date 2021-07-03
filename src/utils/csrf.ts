@@ -1,6 +1,6 @@
 interface CSRFElements {
-  param: HTMLMetaElement,
-  token: HTMLMetaElement
+  param: HTMLMetaElement | null,
+  token: HTMLMetaElement | null
 }
 
 export class Csrf {

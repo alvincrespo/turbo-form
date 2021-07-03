@@ -52,74 +52,77 @@ export default [
     }
   },
 
-  {
-    input: "src/tests/functional/index.ts",
-    output: [
-      {
-        file: "dist/tests/functional.js",
-        format: "cjs",
-        sourcemap: true
-      }
-    ],
-    plugins: [
-      resolve(),
-      typescript()
-    ],
-    external: [
-      "http",
-      "intern"
-    ],
-    watch: {
-      include: "src/tests/**"
-    }
-  },
+  // TODO: Learn what this does!
+  // {
+  //   input: "src/tests/functional/index.ts",
+  //   output: [
+  //     {
+  //       file: "dist/tests/functional.js",
+  //       format: "cjs",
+  //       sourcemap: true
+  //     }
+  //   ],
+  //   plugins: [
+  //     resolve(),
+  //     typescript()
+  //   ],
+  //   external: [
+  //     "http",
+  //     "intern"
+  //   ],
+  //   watch: {
+  //     include: "src/tests/**"
+  //   }
+  // },
 
-  {
-    input: "src/tests/unit/index.ts",
-    output: [
-      {
-        name: "tests_unit",
-        file: "dist/tests/unit.js",
-        format: "iife",
-        sourcemap: true,
-        globals: {
-          intern: "intern"
-        }
-      }
-    ],
-    plugins: [
-      resolve(),
-      typescript()
-    ],
-    external: [
-      "intern"
-    ],
-    watch: {
-      include: "src/tests/**"
-    }
-  },
+  // TODO: Learn what this does!
+  // {
+  //   input: "src/tests/unit/index.ts",
+  //   output: [
+  //     {
+  //       name: "tests_unit",
+  //       file: "dist/tests/unit.js",
+  //       format: "iife",
+  //       sourcemap: true,
+  //       globals: {
+  //         intern: "intern"
+  //       }
+  //     }
+  //   ],
+  //   plugins: [
+  //     resolve(),
+  //     typescript()
+  //   ],
+  //   external: [
+  //     "intern"
+  //   ],
+  //   watch: {
+  //     include: "src/tests/**"
+  //   }
+  // },
 
-  {
-    input: "src/tests/server.ts",
-    output: [
-      {
-        file: "dist/tests/server.js",
-        format: "cjs",
-        sourcemap: true
-      }
-    ],
-    plugins: [
-      resolve(),
-      typescript()
-    ],
-    external: [
-      "express",
-      "multer",
-      "path",
-      "url"
-    ],
-    watch: {
-      include: "src/tests/**"
-    }
-  }
+  // TODO: Learn what this does!
+  // {
+  //   input: "src/tests/server.ts",
+  //   output: [
+  //     {
+  //       file: "dist/tests/server.js",
+  //       format: "cjs",
+  //       sourcemap: true
+  //     }
+  //   ],
+  //   plugins: [
+  //     resolve(),
+  //     typescript()
+  //   ],
+  //   external: [
+  //     "express",
+  //     "multer",
+  //     "path",
+  //     "url"
+  //   ],
+  //   watch: {
+  //     include: "src/tests/**"
+  //   }
+  // }
 ]
