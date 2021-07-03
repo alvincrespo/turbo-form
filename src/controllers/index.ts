@@ -1,2 +1,2 @@
-import "./confirm_controller"
-import "./link_method_controller"
+export * from "./confirm_controller"
+export * from "./link_method_controller"
