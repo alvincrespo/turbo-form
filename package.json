@@ -2,7 +2,7 @@
   "name": "@foxglovetech/turbo-form",
   "version": "0.7.1",
   "description": "Enhances forms with turbolinks like declarations.",
-  "main": "dist/index.js",
+  "main": "index.js",
   "files": [
     "dist/*.js",
     "dist/*.js.map",
