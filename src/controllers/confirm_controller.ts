@@ -1,6 +1,9 @@
 import { Controller } from "stimulus"
 import { Csrf } from "../utils/csrf";
 
+// Reference: 
+//  - https://github.com/rails/rails/blob/main/actionview/app/assets/javascripts/rails-ujs/features/confirm.coffee
+//  - https://github.com/rails/rails/commit/ad3a47759e67a411f3534309cdd704f12f6930a7#diff-ec293d06faf98af3b4e7c5523840874d21a93dbc9224920e1eb3d0404782371c
 export class ConfirmController extends Controller {
   csrf = new Csrf()
 
