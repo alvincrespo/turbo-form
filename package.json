@@ -1,6 +1,6 @@
 {
   "name": "@foxglovetech/turbo-form",
-  "version": "0.9.0",
+  "version": "0.9.1",
   "description": "Enhances forms with turbolinks like declarations.",
   "main": "index.js",
   "files": [
