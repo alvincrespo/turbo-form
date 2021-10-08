@@ -5,8 +5,29 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
+  <script type="importmap">
+    {
+      "imports": {
+        "@hotwired/stimulus": "https://unpkg.com/@hotwired/stimulus/dist/stimulus.js",
+        "@foxglovetech/turbo-form": "./assets/index.js",
+        "/assets/controllers": "./assets/controllers/index.js",
+        "/assets/controllers/confirm_controller": "./assets/controllers/confirm_controller.js",
+        "/assets/controllers/link_method_controller": "./assets/controllers/link_method_controller.js",
+        "/assets/utils/csrf": "./assets/utils/csrf.js"
+      }
+    }
+  </script>
+  <script type="module">
+    import { Application, Controller } from "@hotwired/stimulus";
+    import { ConfirmController } from "@foxglovetech/turbo-form";
+
+    window.Stimulus = Application.start()
+
+    Stimulus.register("confirm", ConfirmController);
+  </script>
 </head>
 <body>
   <h1>The server is up!</h1>
+  <a data-controller="confirm">Confirm</a>
 </body>
 </html>

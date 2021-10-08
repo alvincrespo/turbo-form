@@ -1,22 +1,13 @@
-const fastify = require('fastify')();
-const path = require('path');
+'use strict'
 
-fastify.register(require('fastify-static'), {
-  root: path.join(__dirname, 'public')
-});
+const path = require('path')
+const fastify = require('fastify')({ logger: { level: 'trace' } })
 
-fastify.get('/', function (req, res) {
-  return res.sendFile('index.html');
-});
-
-// Run the server!
-const start = async () => {
-  try {
-    await fastify.listen(3000)
-  } catch (err) {
-    fastify.log.error(err)
-    process.exit(1)
-  }
-}
-
-start()
+fastify
+  .register(require('fastify-static'), {
+    // An absolute path containing static files to serve.
+    root: path.join(__dirname, '/public')
+  })
+  .listen(3000, err => {
+    if (err) throw err
+  })
