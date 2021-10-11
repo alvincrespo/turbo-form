@@ -1,0 +1,69 @@
+version: 2.1
+jobs:
+  build:
+    docker:
+      - image: cimg/node:16.11.0
+    steps:
+      - checkout
+
+      - restore_cache:
+          keys:
+            - yarn-cache-v1-{{ .Branch }}-{{ checksum "yarn.lock" }}
+
+      - run:
+          name: Install Cypress Dependencies
+          command: |
+            sudo apt-get update 
+            sudo apt-get install \
+              libgtk2.0-0 \
+              libgtk-3-0 \
+              libgbm-dev \
+              libnotify-dev \
+              libgconf-2-4 \
+              libnss3 \
+              libxss1 \
+              libasound2 \
+              libxtst6 \
+              xauth \
+              xvfb
+
+      - run:
+          name: Install Dependencies
+          command: yarn
+
+      - save_cache:
+          name: Saving Dependency Cache
+          key: yarn-cache-v1-{{ .Branch }}-{{ checksum "yarn.lock" }}
+          paths:
+            - node_modules
+            - ~/.cache/yarn
+            - ~/.cache/Cypress
+
+      - run:
+          name: Build assets
+          command: yarn test:build
+
+      - run:
+          name: Running Application for Cypress Tests
+          command: yarn test:start:server
+          background: true
+
+      - run:
+          name: Wait for Application Start
+          command: dockerize -wait tcp://localhost:3000 -timeout 1m
+
+      - run:
+          name: Run Cypress Tests
+          command: yarn test:run:cypress
+
+      - store_artifacts:
+          path: ./spec/cypress/videos
+          destination: cypress-videos
+
+      - store_artifacts:
+          path: ./spec/cypress/screenshots
+          destination: cypress-screenshots
+
+      - store_artifacts:
+          path: ./public/
+          destination: public-assets

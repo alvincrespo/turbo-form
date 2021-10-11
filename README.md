@@ -1,3 +1,5 @@
+[![CircleCI](https://circleci.com/gh/alvincrespo/turbo-form/tree/main.svg?style=svg)](https://circleci.com/gh/alvincrespo/turbo-form/tree/main)
+
 # Turbo Form
 
 This library helps port some functionality from [rails-ujs](https://github.com/rails/rails/commit/ad3a47759e67a411f3534309cdd704f12f6930a7) to [Turbo](https://turbo.hotwired.dev/).
