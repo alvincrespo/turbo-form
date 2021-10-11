@@ -40,6 +40,10 @@ jobs:
             - ~/.cache/Cypress
 
       - run:
+          name: Build assets
+          command: yarn test:build
+
+      - run:
           name: Running Application for Cypress Tests
           command: yarn test:start:server
           background: true
