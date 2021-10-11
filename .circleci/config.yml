@@ -1,9 +1,39 @@
 version: 2.1
-orbs:
-  node: circleci/node@4.7
-workflows:
-  sample:
-    jobs:
-      - node/test:
-          version: "16.10"
-          pkg-manager: yarn
+jobs:
+  steps:
+    - checkout
+    - restore_cache:
+      keys:
+        - yarn-cache-v1-{{ .Branch }}-{{ checksum "yarn.lock" }}
+    - run:
+        name: Install Dependencies
+        command: yarn
+    - save_cache:
+        name: Saving Dependency Cache
+        key: yarn-cache-v1-{{ .Branch }}-{{ checksum "yarn.lock" }}
+        paths:
+          - node_modules
+          - ~/.cache/yarn
+          - ~/.cache/Cypress
+    - run:
+        name: Running Application for Cypress Tests
+        command: yarn test:start:server
+        background: true
+    - run:
+        name: Wait for Application Start
+        command: dockerize -wait tcp://localhost:3000 -timeout 1m
+    - run:
+        name: Run Cypress Tests
+        command: yarn test:run:cypress
+
+    - store_artifacts:
+        path: ./spec/cypress/videos
+        destination: cypress-videos
+
+    - store_artifacts:
+        path: ./spec/cypress/screenshots
+        destination: cypress-screenshots
+
+    - store_artifacts:
+        path: ./public/
+        destination: public-assets
