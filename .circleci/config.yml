@@ -5,12 +5,32 @@ jobs:
       - image: cimg/node:16.11.0
     steps:
       - checkout
+
       - restore_cache:
           keys:
             - yarn-cache-v1-{{ .Branch }}-{{ checksum "yarn.lock" }}
+
+      - run:
+        name: Install Cypress Dependencies
+          command: |
+            apt-get update 
+            apt-get install \ 
+              libgtk2.0-0 \
+              libgtk-3-0 \
+              libgbm-dev \
+              libnotify-dev \
+              libgconf-2-4 \
+              libnss3 \
+              libxss1 \
+              libasound2 \
+              libxtst6 \
+              xauth \
+              xvfb
+
       - run:
           name: Install Dependencies
           command: yarn
+
       - save_cache:
           name: Saving Dependency Cache
           key: yarn-cache-v1-{{ .Branch }}-{{ checksum "yarn.lock" }}
@@ -18,13 +38,16 @@ jobs:
             - node_modules
             - ~/.cache/yarn
             - ~/.cache/Cypress
+
       - run:
           name: Running Application for Cypress Tests
           command: yarn test:start:server
           background: true
+
       - run:
           name: Wait for Application Start
           command: dockerize -wait tcp://localhost:3000 -timeout 1m
+
       - run:
           name: Run Cypress Tests
           command: yarn test:run:cypress
