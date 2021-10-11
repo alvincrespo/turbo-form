@@ -13,8 +13,8 @@ jobs:
       - run:
           name: Install Cypress Dependencies
           command: |
-            apt-get update 
-            apt-get install \ 
+            sudo apt-get update 
+            sudo apt-get install \
               libgtk2.0-0 \
               libgtk-3-0 \
               libgbm-dev \
