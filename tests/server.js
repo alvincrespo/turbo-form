@@ -9,11 +9,18 @@ fastify.register(require('fastify-static'), {
   root: path.join(__dirname, '/public')
 });
 
+fastify.register(require('point-of-view'), {
+  engine: {
+    ejs: require('ejs')
+  },
+  root: path.join(__dirname, '/public')
+})
 
 fastify.post('/confirm', function(req, res) {
-  return res.sendFile('confirm.html');
+  console.log({ derp: req.body });
+  return res.view('confirm.ejs', { body: req.body });
 });
-  
+
 
 fastify.listen(3000, err => {
   if (err) throw err

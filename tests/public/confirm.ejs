@@ -8,5 +8,10 @@
 </head>
 <body>
   <h1>Confirmed!</h1>
+  <div class="params">
+    <% Object.keys(body).forEach(function(k) { %>
+      <div id="<%= k %>"><%= body[k] %></div>
+    <% }); %>
+  </div>
 </body>
 </html>
