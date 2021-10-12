@@ -67,3 +67,7 @@ jobs:
       - store_artifacts:
           path: ./public/
           destination: public-assets
+
+      - run:
+          name: Create release
+          command: yarn semantic-release
