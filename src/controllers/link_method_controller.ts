@@ -1,10 +1,8 @@
 import { Controller } from "@hotwired/stimulus";
-import { Csrf } from "../utils/csrf";
+import { Form } from '../utils/form';
 
 // Reference: https://github.com/rails/rails/blob/main/actionview/app/assets/javascripts/rails-ujs/features/method.coffee
 export class LinkMethodController extends Controller {
-  csrf = new Csrf()
-
   form: HTMLFormElement = document.createElement('form');
 
   get element(): HTMLLinkElement {
@@ -23,21 +21,11 @@ export class LinkMethodController extends Controller {
   }
 
   createForm() {
-    const form = document.createElement('form');
-
-    this.form = form;
-
-    const content = `
-      <input name='_method' value='${this.method}' type='hidden' />
-      <input name="${this.csrf.name}" value="${this.csrf.token}" type="hidden" />
-      <input type="submit" />
-    `;
-    form.method = 'post';
-    form.action = this.element.href;
-    form.target = this.element.target;
-    form.innerHTML = content;
-    form.style.display = 'none';
-    document.body.appendChild(form);
+    this.form = Form.create({
+      action: this.element.href,
+      target: this.element.target,
+      method: this.method
+    });
 
     return this;
   }
