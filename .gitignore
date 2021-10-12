@@ -4,3 +4,4 @@
 package-lock.json
 
 tests/public/assets
+tests/cypress/videos
