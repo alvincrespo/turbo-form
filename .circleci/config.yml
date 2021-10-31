@@ -69,5 +69,9 @@ jobs:
           destination: public-assets
 
       - run:
+          name: Create build
+          command: yarn build
+
+      - run:
           name: Create release
-          command: yarn build && yarn semantic-release
+          command: yarn semantic-release
