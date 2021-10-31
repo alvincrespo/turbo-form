@@ -70,4 +70,4 @@ jobs:
 
       - run:
           name: Create release
-          command: yarn semantic-release
+          command: yarn build && yarn semantic-release
