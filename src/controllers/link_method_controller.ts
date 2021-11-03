@@ -27,6 +27,8 @@ export class LinkMethodController extends Controller {
       method: this.method
     });
 
+    document.body.append(this.form);
+
     return this;
   }
 

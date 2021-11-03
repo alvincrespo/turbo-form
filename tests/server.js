@@ -17,10 +17,12 @@ fastify.register(require('point-of-view'), {
 })
 
 fastify.post('/confirm', function(req, res) {
-  console.log({ derp: req.body });
   return res.view('confirm.ejs', { body: req.body });
 });
 
+fastify.get('/confirm', function(req, res) {
+  return res.view('confirm.ejs', { body: req.query });
+});
 
 fastify.listen(3000, err => {
   if (err) throw err
