@@ -31,7 +31,7 @@ export class Form {
       <input name="${this.csrf.name}" value="${this.csrf.token}" type="hidden" />
       <input type="submit" />
     `;
-    form.method = 'post';
+    form.method = this.method;
     form.action = this.action;
     form.target = this.target;
     form.innerHTML = content;
