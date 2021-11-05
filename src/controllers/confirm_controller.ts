@@ -37,6 +37,8 @@ export class ConfirmController extends Controller {
       method: this.method
     });
 
+    document.body.append(this.form);
+
     return this;
   }
 
