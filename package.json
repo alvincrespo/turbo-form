@@ -32,7 +32,7 @@
     "@rollup/plugin-typescript": "^8.3.0",
     "@types/multer": "^1.4.5",
     "concurrently": "^6.3.0",
-    "cypress": "^8.5.0",
+    "cypress": "^9.0.0",
     "ejs": "^3.1.6",
     "fastify": "^3.22.0",
     "fastify-formbody": "^5.1.0",
