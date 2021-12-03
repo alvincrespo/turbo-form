@@ -1,3 +1,7 @@
+⚠️⚠️⚠️
+Archived. Turbo has since implemented data-turbo-confirm and data-turbo-method.
+⚠️⚠️⚠️
+
 [![CircleCI](https://circleci.com/gh/alvincrespo/turbo-form/tree/main.svg?style=svg)](https://circleci.com/gh/alvincrespo/turbo-form/tree/main)
 
 # Turbo Form
